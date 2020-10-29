@@ -1,0 +1,82 @@
+/*
+      about the "rem" font size...
+      rem is "reletive" to the "root of the page",
+      and the root of the page is the <html> element.
+      In most browsers, the default font-size for the html element
+      is 16 pixels. Therefore, a font size of 1.5rem would equal
+      16 * 1.5 or, in this case, 24 pixels.
+      See Lesson 19 in Udemy class: Git a Web Dev Job by Brad Schiff
+
+      Note, he also uses "margin: 0" instead of line-height to bring
+      the title and sub-title closer together!
+*/
+
+.large-hero {
+  border-bottom: 10px solid $mainBlue;
+  position: relative;
+
+  /*
+    Lesson 24 - the "display: block", below is to eliminate the thin white line
+    that separated the image and the blue border (chage it from block to inline
+    to see the white line, again). Inline is the default and is intended for text.
+    By using "block", it behaves more like a DIV.
+*/
+  &__image {
+    display: block;
+  }
+
+  &__text-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: 300;
+    color: $mainBlue;
+    font-size: 2.4rem;
+    margin: 0;
+
+    @mixin atSmall {
+      font-size: 4.8rem;
+    }
+    /*
+    @mixin atMedium {
+      font-size: 3.2rem;
+    }
+
+    @mixin atLarge {
+      font-size: 4.8rem;
+    }
+*/
+  }
+
+  &__subtitle {
+    font-weight: 300;
+    color: $mainBlue;
+    font-size: 1.5rem;
+    margin: 0;
+
+    @mixin atSmall {
+      font-size: 2.9rem;
+    }
+  }
+
+  &__description {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 100;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    /* the next 3 lines wrap and center the paragraph */
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @mixin atSmall {
+      font-size: 1.875rem;
+    }
+  }
+}

@@ -1,1 +1,5 @@
-alert("Hello, this is a another, NEW test.");
+import '../styles/styles.css'
+
+if (module.hot) {
+  module.hot.accept()
+}
