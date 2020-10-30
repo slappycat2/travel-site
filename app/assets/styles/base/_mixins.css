@@ -1,3 +1,10 @@
+/*
+ I would think of mixins as snippets of code with two purposes:
+  1) to save typing, space, and code repetition, but more importantly
+  2) To have a single place, like a variable block, to dynamically
+      change the system
+*/
+
 @define-mixin atSmall {
   @media (min-width: 530px) {
     @mixin-content;
@@ -13,5 +20,12 @@
 @define-mixin atLarge {
   @media (min-width: 1200px) {
     @mixin-content;
+  }
+}
+@define-mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
   }
 }

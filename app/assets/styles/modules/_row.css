@@ -1,0 +1,63 @@
+.row {
+  @mixin clearfix;
+
+  /*
+  The -65 "MARGIN" (not padding!), below, cancels the last columns padding-right
+  of 65px.
+  But, in order to complete the effect, "overflow: hidden;" must be added to the
+  parent "wrapper" element. (see _wrapper.css)
+*/
+
+  &--gutters {
+    margin-right: -65px;
+  }
+
+  /*
+  the " > div" in the code below means, apply this to all the child div's
+  of the parent div (where it is declared--see index.html). So in this case,
+  this will actually be applied to the two children in index.html, or to
+  be specific, the nested row__medium-4 and row__medium-8 DIVs.
+  */
+  &--gutters > div {
+    padding-right: 65px;
+  }
+  /*
+  ABOUT box-sizing: border-box; Lesson 26 (see _global.css)
+  Web browsers calculate the true "width" of a column by adding up the column
+  widths and adding on any padding and borders. So the 65px above (x2, or 130px),
+  will exceed the 100% (33% + 66%) calculated, below.
+  The "box-sizing: border-box;" attribute, above will tell the browser to honor
+  our declared width values and still use the padding.
+  In fact, many developers now apply this globally, as a standard, on ALL pages, just
+  because it DOES seem to make more sense.
+  And so, we did the same, here. (See _global.css)
+*/
+
+  &__b-margin-until-medium {
+    margin-bottom: 1rem;
+  }
+
+  @mixin atMedium {
+    &__b-margin-until-medium {
+      margin-bottom: 0;
+    }
+
+    &__medium-4 {
+      float: left;
+      width: 33.33%;
+
+      &--larger {
+        width: 37%;
+      }
+    }
+
+    &__medium-8 {
+      float: left;
+      width: 66.66%;
+
+      &--smaller {
+        width: 63%;
+      }
+    }
+  }
+}
