@@ -12,6 +12,10 @@
     margin-right: -65px;
   }
 
+  &--gutters-large {
+    margin-right: -100px;
+  }
+
   /*
   the " > div" in the code below means, apply this to all the child div's
   of the parent div (where it is declared--see index.html). So in this case,
@@ -20,6 +24,10 @@
   */
   &--gutters > div {
     padding-right: 65px;
+  }
+
+  &--gutters-large > div {
+    padding-right: 100px;
   }
   /*
   ABOUT box-sizing: border-box; Lesson 26 (see _global.css)
@@ -49,6 +57,11 @@
       &--larger {
         width: 37%;
       }
+    }
+
+    &__medium-6 {
+      float: left;
+      width: 50%;
     }
 
     &__medium-8 {
